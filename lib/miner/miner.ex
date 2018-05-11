@@ -1,0 +1,4 @@
+defmodule Miner do
+
+
+end
