@@ -1,0 +1,28 @@
+<h2>Show Item</h2>
+
+<ul>
+
+  <li>
+    <strong>Value:</strong>
+    <%= @item.value %>
+  </li>
+
+  <li>
+    <strong>Value total without discount:</strong>
+    <%= @item.value_total_without_discount %>
+  </li>
+
+  <li>
+    <strong>Value discount:</strong>
+    <%= @item.value_discount %>
+  </li>
+
+  <li>
+    <strong>Value total with discount:</strong>
+    <%= @item.value_total_with_discount %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: item_path(@conn, :edit, @item) %></span>
+<span><%= link "Back", to: item_path(@conn, :index) %></span>

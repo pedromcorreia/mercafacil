@@ -1,0 +1,13 @@
+<h2>Show Store</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @store.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: store_path(@conn, :edit, @store) %></span>
+<span><%= link "Back", to: store_path(@conn, :index) %></span>

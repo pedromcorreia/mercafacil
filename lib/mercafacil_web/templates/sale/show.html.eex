@@ -1,0 +1,38 @@
+<h2>Show Sale</h2>
+
+<ul>
+
+  <li>
+    <strong>Data:</strong>
+    <%= @sale.data %>
+  </li>
+
+  <li>
+    <strong>Time:</strong>
+    <%= @sale.time %>
+  </li>
+
+  <li>
+    <strong>Value total without discount:</strong>
+    <%= @sale.value_total_without_discount %>
+  </li>
+
+  <li>
+    <strong>Value discount:</strong>
+    <%= @sale.value_discount %>
+  </li>
+
+  <li>
+    <strong>Value total with discount:</strong>
+    <%= @sale.value_total_with_discount %>
+  </li>
+
+  <li>
+    <strong>Cashier number:</strong>
+    <%= @sale.cashier_number %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: sale_path(@conn, :edit, @sale) %></span>
+<span><%= link "Back", to: sale_path(@conn, :index) %></span>

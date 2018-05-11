@@ -1,0 +1,26 @@
+<h2>Listing Stores</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for store <- @stores do %>
+    <tr>
+      <td><%= store.name %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: store_path(@conn, :show, store), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: store_path(@conn, :edit, store), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: store_path(@conn, :delete, store), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Store", to: store_path(@conn, :new) %></span>

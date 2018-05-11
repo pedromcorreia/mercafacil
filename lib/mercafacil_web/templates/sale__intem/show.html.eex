@@ -1,0 +1,13 @@
+<h2>Show Sale  intem</h2>
+
+<ul>
+
+  <li>
+    <strong>Quantities:</strong>
+    <%= @sale__intem.quantities %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: sale__intem_path(@conn, :edit, @sale__intem) %></span>
+<span><%= link "Back", to: sale__intem_path(@conn, :index) %></span>
