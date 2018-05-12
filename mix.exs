@@ -41,7 +41,8 @@ defmodule Mercafacil.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:nimble_csv, "~> 0.3"}
+      {:csv, "~> 2.1.1"},
+      {:timex, "~> 3.3.0"}
     ]
   end
 
