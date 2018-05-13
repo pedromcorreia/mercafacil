@@ -2,19 +2,19 @@ defmodule Miner.Parser do
 
   import CSV
   @chunk_size 20
-  @mappings_sale %{
+  @mapping_sale %{
     id_loja: %{type: :integer, index: 0},
     id_venda: %{type: :integer, index: 1},
     numero_caixa: %{type: :integer, index: 2},
     data_venda: %{type: :date, index: 3},
     hora_venda: %{type: :time, index: 4},
-    valor_total_sem_desc: %{type: :integer, index: 5},
-    valor_desconto: %{type: :integer, index: 6},
-    valor_total_com_desc: %{type: :integer, index: 7},
+    valor_total_sem_desc: %{type: :decimal, index: 5},
+    valor_desconto: %{type: :decimal, index: 6},
+    valor_total_com_desc: %{type: :decimal, index: 7},
     id_cliente_1: %{type: :integer, index: 8},
     id_cliente_2: %{type: :integer, index: 9}
   }
-  @mapping_sale_intem %{
+  @mapping_sale_item %{
     id_loja: %{type: :integer, index: 0},
     id_venda: %{type: :integer , index: 1},
     numero_caixa: %{type: :integer, index: 2},
@@ -45,11 +45,19 @@ defmodule Miner.Parser do
       x
       |> List.first
       |> String.split(";")
+      |> read_map()
     end)
   end
 
-  def read_map(sale) do
-    @mappings_sale
+  def read_map(sale) when length(sale) == 12 do
+    @mapping_sale_item
+    |> Enum.map(fn({field, %{index: index, type: type}}) ->
+      read_field(Enum.at(sale, index), field, type)
+    end)
+  end
+
+  def read_map(sale) when length(sale) == 11 do
+    @mapping_sale
     |> Enum.map(fn({field, %{index: index, type: type}}) ->
       read_field(Enum.at(sale, index), field, type)
     end)
@@ -57,6 +65,10 @@ defmodule Miner.Parser do
 
   defp read_field(value, field) do
     %{field => value}
+  end
+
+  defp read_field(value, field, _) when value == ""do
+    read_field(nil, field)
   end
 
   defp read_field(value, field, :integer) do
@@ -78,6 +90,17 @@ defmodule Miner.Parser do
     value <> ":00"
     |> Time.from_iso8601()
     |> elem(1)
+    |> read_field(field)
+  end
+
+  defp read_field(value, field, :decimal) do
+    if String.starts_with?(value, "."), do: value = String.replace(value, ".", "0.")
+
+    value
+    |> String.replace("-", "0")
+    |> String.replace(",", ".")
+    |> Float.parse()
+    |> elem(0)
     |> read_field(field)
   end
 end
