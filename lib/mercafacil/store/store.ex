@@ -3,7 +3,7 @@ defmodule Mercafacil.Store do
   The Store context.
   """
 
-  import Ecto.Query, warn: false
+  import Ecto.Query
   alias Mercafacil.Repo
 
   alias Mercafacil.Store.Sale
@@ -13,8 +13,8 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> list_sales()
-      [%Sale{}, ...]
+  iex> list_sales()
+  [%Sale{}, ...]
 
   """
   def list_sales do
@@ -28,11 +28,11 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> get_sale!(123)
-      %Sale{}
+  iex> get_sale!(123)
+  %Sale{}
 
-      iex> get_sale!(456)
-      ** (Ecto.NoResultsError)
+  iex> get_sale!(456)
+  ** (Ecto.NoResultsError)
 
   """
   def get_sale!(id), do: Repo.get!(Sale, id)
@@ -42,11 +42,11 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> create_sale(%{field: value})
-      {:ok, %Sale{}}
+  iex> create_sale(%{field: value})
+  {:ok, %Sale{}}
 
-      iex> create_sale(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> create_sale(%{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def create_sale(attrs \\ %{}) do
@@ -60,11 +60,11 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> update_sale(sale, %{field: new_value})
-      {:ok, %Sale{}}
+  iex> update_sale(sale, %{field: new_value})
+  {:ok, %Sale{}}
 
-      iex> update_sale(sale, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> update_sale(sale, %{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def update_sale(%Sale{} = sale, attrs) do
@@ -78,11 +78,11 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> delete_sale(sale)
-      {:ok, %Sale{}}
+  iex> delete_sale(sale)
+  {:ok, %Sale{}}
 
-      iex> delete_sale(sale)
-      {:error, %Ecto.Changeset{}}
+  iex> delete_sale(sale)
+  {:error, %Ecto.Changeset{}}
 
   """
   def delete_sale(%Sale{} = sale) do
@@ -94,8 +94,8 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> change_sale(sale)
-      %Ecto.Changeset{source: %Sale{}}
+  iex> change_sale(sale)
+  %Ecto.Changeset{source: %Sale{}}
 
   """
   def change_sale(%Sale{} = sale) do
@@ -109,8 +109,8 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> list_itens()
-      [%Item{}, ...]
+  iex> list_itens()
+  [%Item{}, ...]
 
   """
   def list_itens do
@@ -124,11 +124,11 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> get_item!(123)
-      %Item{}
+  iex> get_item!(123)
+  %Item{}
 
-      iex> get_item!(456)
-      ** (Ecto.NoResultsError)
+  iex> get_item!(456)
+  ** (Ecto.NoResultsError)
 
   """
   def get_item!(id), do: Repo.get!(Item, id)
@@ -138,11 +138,11 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> create_item(%{field: value})
-      {:ok, %Item{}}
+  iex> create_item(%{field: value})
+  {:ok, %Item{}}
 
-      iex> create_item(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> create_item(%{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def create_item(attrs \\ %{}) do
@@ -156,11 +156,11 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> update_item(item, %{field: new_value})
-      {:ok, %Item{}}
+  iex> update_item(item, %{field: new_value})
+  {:ok, %Item{}}
 
-      iex> update_item(item, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
+  iex> update_item(item, %{field: bad_value})
+  {:error, %Ecto.Changeset{}}
 
   """
   def update_item(%Item{} = item, attrs) do
@@ -174,11 +174,11 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> delete_item(item)
-      {:ok, %Item{}}
+  iex> delete_item(item)
+  {:ok, %Item{}}
 
-      iex> delete_item(item)
-      {:error, %Ecto.Changeset{}}
+  iex> delete_item(item)
+  {:error, %Ecto.Changeset{}}
 
   """
   def delete_item(%Item{} = item) do
@@ -190,11 +190,43 @@ defmodule Mercafacil.Store do
 
   ## Examples
 
-      iex> change_item(item)
-      %Ecto.Changeset{source: %Item{}}
+  iex> change_item(item)
+  %Ecto.Changeset{source: %Item{}}
 
   """
   def change_item(%Item{} = item) do
     Item.changeset(item, %{})
+  end
+
+  def get_all_sell_by_product() do
+    from(i in Item,
+         group_by: i.id_product,
+         order_by: i.id_product,
+         select: {i.id_product, count(i.id)})
+         |> Repo.all
+  end
+
+  def get_all_sell_by_client() do
+    from(s in Sale,
+         group_by: s.client_1,
+         order_by: s.client_1,
+         select: {s.client_1, count(s.id)})
+         |> Repo.all
+  end
+
+  def get_all_sell_by_day() do
+    from(s in Sale,
+         group_by: s.date,
+         order_by: s.date,
+         select: {s.date, count(s.id)})
+         |> Repo.all
+  end
+
+  def get_average_ticket_by_client() do
+    from(s in Sale,
+         group_by: s.client_1,
+         group_by: s.date,
+         select: {s.value_total_with_discount, s.id})
+         |> Repo.all
   end
 end
