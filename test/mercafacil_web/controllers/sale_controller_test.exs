@@ -3,9 +3,9 @@ defmodule MercafacilWeb.SaleControllerTest do
 
   alias Mercafacil.Store
 
-  @create_attrs %{cashier_number: 42, data: ~D[2010-04-17], time: ~N[2010-04-17 14:00:00.000000], value_discount: 42, value_total_with_discount: 42, value_total_without_discount: 42}
-  @update_attrs %{cashier_number: 43, data: ~D[2011-05-18], time: ~N[2011-05-18 15:01:01.000000], value_discount: 43, value_total_with_discount: 43, value_total_without_discount: 43}
-  @invalid_attrs %{cashier_number: nil, data: nil, time: nil, value_discount: nil, value_total_with_discount: nil, value_total_without_discount: nil}
+  @create_attrs %{cashier_number: 42, client_1: 42, client_2: 42, date: ~D[2010-04-17], id_sale: 42, id_store: 42, time: ~T[14:00:00.000000], value_discount: 120.5, value_total_with_discount: 120.5, value_total_without_discount: 120.5}
+  @update_attrs %{cashier_number: 43, client_1: 43, client_2: 43, date: ~D[2011-05-18], id_sale: 43, id_store: 43, time: ~T[15:01:01.000000], value_discount: 456.7, value_total_with_discount: 456.7, value_total_without_discount: 456.7}
+  @invalid_attrs %{cashier_number: nil, client_1: nil, client_2: nil, date: nil, id_sale: nil, id_store: nil, time: nil, value_discount: nil, value_total_with_discount: nil, value_total_without_discount: nil}
 
   def fixture(:sale) do
     {:ok, sale} = Store.create_sale(@create_attrs)

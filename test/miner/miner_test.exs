@@ -8,8 +8,9 @@ defmodule MinerTest do
       path_sales = "~/mercafacil/test/fixtures/vendas.csv"
       path_sales_itens = "~/mercafacil/test/fixtures/vendas_itens.csv"
 
-      #Miner.run(path_sales)
-      #Miner.run(path_sales_itens)
+      sales_test = Miner.run(path_sales)
+      sales_item_test = Miner.run(path_sales_itens)
+      assert sales_test == ""
     end
   end
 end

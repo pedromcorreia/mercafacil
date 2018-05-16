@@ -6,27 +6,69 @@
   <% end %>
 
   <div class="form-group">
+    <%= label f, :id_store, class: "control-label" %>
+    <%= number_input f, :id_store, class: "form-control" %>
+    <%= error_tag f, :id_store %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :id_sale, class: "control-label" %>
+    <%= number_input f, :id_sale, class: "form-control" %>
+    <%= error_tag f, :id_sale %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :cashier_number, class: "control-label" %>
+    <%= number_input f, :cashier_number, class: "form-control" %>
+    <%= error_tag f, :cashier_number %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :id_product, class: "control-label" %>
+    <%= number_input f, :id_product, class: "form-control" %>
+    <%= error_tag f, :id_product %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :quantitie, class: "control-label" %>
+    <%= number_input f, :quantitie, step: "any", class: "form-control" %>
+    <%= error_tag f, :quantitie %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :value, class: "control-label" %>
-    <%= number_input f, :value, class: "form-control" %>
+    <%= number_input f, :value, step: "any", class: "form-control" %>
     <%= error_tag f, :value %>
   </div>
 
   <div class="form-group">
     <%= label f, :value_total_without_discount, class: "control-label" %>
-    <%= number_input f, :value_total_without_discount, class: "form-control" %>
+    <%= number_input f, :value_total_without_discount, step: "any", class: "form-control" %>
     <%= error_tag f, :value_total_without_discount %>
   </div>
 
   <div class="form-group">
     <%= label f, :value_discount, class: "control-label" %>
-    <%= number_input f, :value_discount, class: "form-control" %>
+    <%= number_input f, :value_discount, step: "any", class: "form-control" %>
     <%= error_tag f, :value_discount %>
   </div>
 
   <div class="form-group">
     <%= label f, :value_total_with_discount, class: "control-label" %>
-    <%= number_input f, :value_total_with_discount, class: "form-control" %>
+    <%= number_input f, :value_total_with_discount, step: "any", class: "form-control" %>
     <%= error_tag f, :value_total_with_discount %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :profissional_1, class: "control-label" %>
+    <%= number_input f, :profissional_1, class: "form-control" %>
+    <%= error_tag f, :profissional_1 %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :profissional_2, class: "control-label" %>
+    <%= number_input f, :profissional_2, class: "form-control" %>
+    <%= error_tag f, :profissional_2 %>
   </div>
 
   <div class="form-group">

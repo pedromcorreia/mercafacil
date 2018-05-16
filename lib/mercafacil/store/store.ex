@@ -102,99 +102,99 @@ defmodule Mercafacil.Store do
     Sale.changeset(sale, %{})
   end
 
-  alias Mercafacil.Store.Sale_Intem
+  alias Mercafacil.Store.Item
 
   @doc """
-  Returns the list of sale_itens.
+  Returns the list of itens.
 
   ## Examples
 
-      iex> list_sale_itens()
-      [%Sale_Intem{}, ...]
+      iex> list_itens()
+      [%Item{}, ...]
 
   """
-  def list_sale_itens do
-    Repo.all(Sale_Intem)
+  def list_itens do
+    Repo.all(Item)
   end
 
   @doc """
-  Gets a single sale__intem.
+  Gets a single item.
 
-  Raises `Ecto.NoResultsError` if the Sale  intem does not exist.
+  Raises `Ecto.NoResultsError` if the Item does not exist.
 
   ## Examples
 
-      iex> get_sale__intem!(123)
-      %Sale_Intem{}
+      iex> get_item!(123)
+      %Item{}
 
-      iex> get_sale__intem!(456)
+      iex> get_item!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_sale__intem!(id), do: Repo.get!(Sale_Intem, id)
+  def get_item!(id), do: Repo.get!(Item, id)
 
   @doc """
-  Creates a sale__intem.
+  Creates a item.
 
   ## Examples
 
-      iex> create_sale__intem(%{field: value})
-      {:ok, %Sale_Intem{}}
+      iex> create_item(%{field: value})
+      {:ok, %Item{}}
 
-      iex> create_sale__intem(%{field: bad_value})
+      iex> create_item(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_sale__intem(attrs \\ %{}) do
-    %Sale_Intem{}
-    |> Sale_Intem.changeset(attrs)
+  def create_item(attrs \\ %{}) do
+    %Item{}
+    |> Item.changeset(attrs)
     |> Repo.insert()
   end
 
   @doc """
-  Updates a sale__intem.
+  Updates a item.
 
   ## Examples
 
-      iex> update_sale__intem(sale__intem, %{field: new_value})
-      {:ok, %Sale_Intem{}}
+      iex> update_item(item, %{field: new_value})
+      {:ok, %Item{}}
 
-      iex> update_sale__intem(sale__intem, %{field: bad_value})
+      iex> update_item(item, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_sale__intem(%Sale_Intem{} = sale__intem, attrs) do
-    sale__intem
-    |> Sale_Intem.changeset(attrs)
+  def update_item(%Item{} = item, attrs) do
+    item
+    |> Item.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a Sale_Intem.
+  Deletes a Item.
 
   ## Examples
 
-      iex> delete_sale__intem(sale__intem)
-      {:ok, %Sale_Intem{}}
+      iex> delete_item(item)
+      {:ok, %Item{}}
 
-      iex> delete_sale__intem(sale__intem)
+      iex> delete_item(item)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_sale__intem(%Sale_Intem{} = sale__intem) do
-    Repo.delete(sale__intem)
+  def delete_item(%Item{} = item) do
+    Repo.delete(item)
   end
 
   @doc """
-  Returns an `%Ecto.Changeset{}` for tracking sale__intem changes.
+  Returns an `%Ecto.Changeset{}` for tracking item changes.
 
   ## Examples
 
-      iex> change_sale__intem(sale__intem)
-      %Ecto.Changeset{source: %Sale_Intem{}}
+      iex> change_item(item)
+      %Ecto.Changeset{source: %Item{}}
 
   """
-  def change_sale__intem(%Sale_Intem{} = sale__intem) do
-    Sale_Intem.changeset(sale__intem, %{})
+  def change_item(%Item{} = item) do
+    Item.changeset(item, %{})
   end
 end

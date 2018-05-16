@@ -1,14 +1,14 @@
 defmodule MercafacilWeb.ItemControllerTest do
   use MercafacilWeb.ConnCase
 
-  alias Mercafacil.Sale
+  alias Mercafacil.Store
 
-  @create_attrs %{value: 42, value_discount: 42, value_total_with_discount: 42, value_total_without_discount: 42}
-  @update_attrs %{value: 43, value_discount: 43, value_total_with_discount: 43, value_total_without_discount: 43}
-  @invalid_attrs %{value: nil, value_discount: nil, value_total_with_discount: nil, value_total_without_discount: nil}
+  @create_attrs %{cashier_number: 42, id_product: 42, id_sale: 42, id_store: 42, profissional_1: 42, profissional_2: 42, quantitie: 120.5, value: 120.5, value_discount: 120.5, value_total_with_discount: 120.5, value_total_without_discount: 120.5}
+  @update_attrs %{cashier_number: 43, id_product: 43, id_sale: 43, id_store: 43, profissional_1: 43, profissional_2: 43, quantitie: 456.7, value: 456.7, value_discount: 456.7, value_total_with_discount: 456.7, value_total_without_discount: 456.7}
+  @invalid_attrs %{cashier_number: nil, id_product: nil, id_sale: nil, id_store: nil, profissional_1: nil, profissional_2: nil, quantitie: nil, value: nil, value_discount: nil, value_total_with_discount: nil, value_total_without_discount: nil}
 
   def fixture(:item) do
-    {:ok, item} = Sale.create_item(@create_attrs)
+    {:ok, item} = Store.create_item(@create_attrs)
     item
   end
 

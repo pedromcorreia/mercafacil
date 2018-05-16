@@ -3,6 +3,31 @@
 <ul>
 
   <li>
+    <strong>Id store:</strong>
+    <%= @item.id_store %>
+  </li>
+
+  <li>
+    <strong>Id sale:</strong>
+    <%= @item.id_sale %>
+  </li>
+
+  <li>
+    <strong>Cashier number:</strong>
+    <%= @item.cashier_number %>
+  </li>
+
+  <li>
+    <strong>Id product:</strong>
+    <%= @item.id_product %>
+  </li>
+
+  <li>
+    <strong>Quantitie:</strong>
+    <%= @item.quantitie %>
+  </li>
+
+  <li>
     <strong>Value:</strong>
     <%= @item.value %>
   </li>
@@ -20,6 +45,16 @@
   <li>
     <strong>Value total with discount:</strong>
     <%= @item.value_total_with_discount %>
+  </li>
+
+  <li>
+    <strong>Profissional 1:</strong>
+    <%= @item.profissional_1 %>
+  </li>
+
+  <li>
+    <strong>Profissional 2:</strong>
+    <%= @item.profissional_2 %>
   </li>
 
 </ul>

@@ -3,8 +3,23 @@
 <ul>
 
   <li>
-    <strong>Data:</strong>
-    <%= @sale.data %>
+    <strong>Id store:</strong>
+    <%= @sale.id_store %>
+  </li>
+
+  <li>
+    <strong>Id sale:</strong>
+    <%= @sale.id_sale %>
+  </li>
+
+  <li>
+    <strong>Cashier number:</strong>
+    <%= @sale.cashier_number %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @sale.date %>
   </li>
 
   <li>
@@ -28,8 +43,13 @@
   </li>
 
   <li>
-    <strong>Cashier number:</strong>
-    <%= @sale.cashier_number %>
+    <strong>Client 1:</strong>
+    <%= @sale.client_1 %>
+  </li>
+
+  <li>
+    <strong>Client 2:</strong>
+    <%= @sale.client_2 %>
   </li>
 
 </ul>

@@ -17,11 +17,8 @@ defmodule MercafacilWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    resources "/stores", StoreController
-    resources "/clients", ClientController
     resources "/sales", SaleController
     resources "/itens", ItemController
-    resources "/sale_itens", Sale_IntemController
 
   end
 
