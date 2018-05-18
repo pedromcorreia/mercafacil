@@ -36,19 +36,18 @@ defmodule Miner.Parser do
     |> Path.expand(__DIR__)
     |> File.stream!()
     |> CSV.decode!(separator: ?;)
-    |> Stream.chunk_every(@chunk_size)
-    |> Stream.each(&create_entities(&1))
-    |> Enum.to_list
+    |> Flow.from_enumerable
+    |> Flow.map(fn(line) ->
+      create_entities(line)
+    end)
+    |> Flow.run
   end
 
-  def create_entities(chunk) do
-    chunk
-    |> Enum.map(fn(x) ->
-      x
-      |> List.first
-      |> String.split(";")
-      |> read_map()
-    end)
+  def create_entities(entitie) do
+    entitie
+    |> List.first()
+    |> String.split(";")
+    |> read_map()
   end
 
   def read_map(sale) when length(sale) == 12 do

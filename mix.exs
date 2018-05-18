@@ -43,6 +43,7 @@ defmodule Mercafacil.Mixfile do
       {:cowboy, "~> 1.0"},
       {:csv, "~> 2.1.1"},
       {:timex, "~> 3.3.0"},
+      {:flow, "~> 0.11"},
       {:file_system, "~> 0.2"}
     ]
   end
