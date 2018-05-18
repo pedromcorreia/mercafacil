@@ -14,7 +14,7 @@ defmodule MercafacilWeb.Router do
   end
 
   scope "/", MercafacilWeb do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
     resources "/", PageController, only: [:index, :show]
   end
 end

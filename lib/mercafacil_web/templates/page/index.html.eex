@@ -1,3 +1,13 @@
+<div>
+  <a href="/total_sell_by_product">Sell by product</a>
+  <br>
+  <a href="/total_sell_by_client">Sell by client</a>
+  <br>
+  <a href="/total_sell_by_day">Sell by day</a>
+  <br>
+  <a href="#">Sell by day</a>
+</div>
+
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
@@ -6,60 +16,15 @@
     </tr>
   </thead>
   <tbody>
-    <%= for sell <- @total_sell_by_product do %>
+    <%= for each_item <- @list_result do %>
       <tr>
         <td>
-          <%= elem(sell, 0) %>
+          <%= elem(each_item, 0) %>
         </td>
         <td>
-          <%= elem(sell, 1) %>
+          <%= elem(each_item, 1) %>
         </td>
       </tr>
-
-    <% end %>
-  </tbody>
-</table>
-
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Client</th>
-      <th>total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for client <- @total_sell_by_client do %>
-      <tr>
-        <td>
-          <%= elem(client, 0) %>
-        </td>
-        <td>
-          <%= elem(client, 1) %>
-        </td>
-      </tr>
-
-    <% end %>
-  </tbody>
-</table>
-
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Day</th>
-      <th>total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= for day <- @total_sell_by_day do %>
-      <tr>
-        <td>
-          <%= elem(day, 0) %>
-        </td>
-        <td>
-          <%= elem(day, 1) %>
-        </td>
-      </tr>
-
     <% end %>
   </tbody>
 </table>
