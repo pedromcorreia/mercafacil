@@ -70,7 +70,6 @@ defmodule Miner.Parser do
       Map.merge(x, y, fn _k, v1, v2 -> v2 ++ v1 end)
     end)
     |> create_sale()
-    |> IO.inspect
   end
 
   defp create_sale_item(item) do

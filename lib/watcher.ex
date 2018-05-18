@@ -19,8 +19,16 @@ defmodule Watcher do
   end
 
   defp reload(path) do
+    IO.inspect "New file added"
     if Path.extname(path) == ".csv" do
-      Miner.run(path)
+      try do
+        run = Miner.run(path)
+        IO.inspect(run <> path)
+      rescue
+        e -> Display.show_compile_error(e)
+      end
+    else
+      IO.inspect "File Extention not supported"
     end
   end
 
