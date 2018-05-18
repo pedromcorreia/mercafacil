@@ -42,7 +42,8 @@ defmodule Mercafacil.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:csv, "~> 2.1.1"},
-      {:timex, "~> 3.3.0"}
+      {:timex, "~> 3.3.0"},
+      {:file_system, "~> 0.2"}
     ]
   end
 

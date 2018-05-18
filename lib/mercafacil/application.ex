@@ -12,8 +12,8 @@ defmodule Mercafacil.Application do
       supervisor(Mercafacil.Repo, []),
       # Start the endpoint when the application starts
       supervisor(MercafacilWeb.Endpoint, []),
-      # Start your own worker by calling: Mercafacil.Worker.start_link(arg1, arg2, arg3)
       # worker(Mercafacil.Worker, [arg1, arg2, arg3]),
+      worker(Watcher, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
