@@ -25,7 +25,7 @@ defmodule Watcher do
         run = Miner.run(path)
         IO.inspect(run <> path)
       rescue
-        e -> Display.show_compile_error(e)
+        e -> IO.inspect(e <> path)
       end
     else
       IO.inspect "File Extention not supported"

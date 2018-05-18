@@ -15,15 +15,6 @@ defmodule MercafacilWeb.Router do
 
   scope "/", MercafacilWeb do
     pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-    resources "/sales", SaleController
-    resources "/itens", ItemController
-
+    resources "/", PageController, only: [:index, :show]
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", MercafacilWeb do
-  #   pipe_through :api
-  # end
 end
